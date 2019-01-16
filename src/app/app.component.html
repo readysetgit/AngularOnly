@@ -1,20 +1,83 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!--Interpolation-->
+<h1>This is the title - {{title}}</h1>
+
+<!--One Way Binding (PROPERTY BINDING)-->
+<div >
+    <p [innerHTML] = "myText"> One Way binding </p>
+
+    <p [hidden]="isHidden">This text was hidden</p>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<input value="Bob" type="text">
+<!--One Way Binding (EVENT BINDING)-->
+
+<div style='margin-bottom: 15px;'>
+    <button (click)="toggleHidden()">{{ isHidden? 'Show':'Hide'}}</button>
+</div>
+
+<div>
+    <input (input)="someoneTyped($event.target.value)" placeholder="Type Something!">
+    <p>This is what I input above - {{myInput}}</p>
+</div>
+
+<!--Two Way Binding-  BANANA IN A BOX [()] -->
+
+<div>
+  <input [(ngModel)]="doublyBindedText">
+  <input [(ngModel)]="doublyBindedText">
+
+  <p>{{doublyBindedText}}</p>
+</div>
+
+
+<!--Attribute Binding-->
+<!-- <table style="background:red;">
+    <tr>
+        <td [attr.colspan]="1 + 1" width="50%">Three-Four</td>
+        <td [attr.colspan]="4+1">Three-Four</td>
+    </tr>
+    <tr>
+            <td [attr.colspan]="1 + 1">Three-Four</td>
+    </tr>
+</table>
+
+<div class="blue class2 class3">
+ <p>This is blue</p>
+</div>
+
+<div [class.blue]="isBlue">
+        <p>This is blue</p>
+</div>
+
+<div  [ngClass]="currentClasses" >
+        <p>This is multiple</p>
+</div>
+
+<button (click)="toggleBlue()">Add or remove class blue</button>
+<button (click)="toggle2()">Add or remove class 2</button>
+<button (click)="toggle3()">Add or remove class 3</button> -->
+
+
+<!-- NG FOR -->
+
+<div>
+    
+        <ul *ngIf="isAdmin">
+            <span *ngFor="let item of myList; index as Manas ">
+                 <li  >{{item}} {{Manas}}</li>
+            </span>
+        </ul>
+    
+    
+</div>
+
+<div *ngIf="isAdmin">
+    <p> SHOW THIS ONLY TO ADMIN</p>
+</div>
+
+<div>
+    <button (click)="checkifAdmin()">Grant Admin Rights</button>
+</div>
+<!-- <app-navmenu></app-navmenu> -->
+
 
